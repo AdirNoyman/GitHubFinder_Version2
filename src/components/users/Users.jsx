@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import UserItem from './UserItem';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
+import GithubContext from '../../context/github/githubContext';
 
-const Users = ({ users, loading }) => {
+const Users = () => {
+  const githubContext = useContext(GithubContext);
+  const { users, loading } = githubContext;
+
   return (
     <Fragment>
       {loading ? (
