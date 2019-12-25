@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react';
 import GithubContext from '../../context/github/githubContext';
+import AlertContext from '../../context/alert/alertContext';
 
-const Search = ({}) => {
+const Search = () => {
   const githubContext = useContext(GithubContext);
-  const { users, clearUsers, EmptySearchAlert } = githubContext;
+  const { users, clearUsers } = githubContext;
+  const alertContext = useContext(AlertContext);
+  const { EmptySearchAlert } = alertContext;
 
   // Define state Hook
   const [text, setText] = useState('');
@@ -22,8 +25,6 @@ const Search = ({}) => {
   };
 
   const handelChange = e => setText(e.target.value);
-
-  const handelClear = e => clearUsers();
 
   return (
     <div>
